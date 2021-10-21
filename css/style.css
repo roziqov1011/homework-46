@@ -1,6 +1,11 @@
 body{
     background: linear-gradient(45deg, #00ff, #f00);
 }
+
+
+.list-films{
+    min-height: 100vh;
+}
 img{
     width: 200px;
 }

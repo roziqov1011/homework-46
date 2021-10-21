@@ -3,10 +3,18 @@ const elUl = document.querySelector(".list-films")
 const elPrev = document.querySelector(".js-prev");
 const elNext = document.querySelector(".js-next");
 
+const elInput = document.querySelector(".js-input")
+const elForm = document.querySelector(".js-form")
+
+elForm.addEventListener("submit",function (){
+  const inputValue = elInput.value.trim()
+  elUl.innerHTML = ""
+
+
 let page = 1;
 
 function getData(page) {
-  fetch(`https://www.omdbapi.com/?apikey=9fcd4d84&s=spider&page=${page}`)
+  fetch(`https://www.omdbapi.com/?apikey=9fcd4d84&s=${inputValue}&page=${page}`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
@@ -21,6 +29,7 @@ function getData(page) {
     });
   }
 }
+
 
 function renderFilms(object) {
   const newLi = document.createElement("li")
@@ -61,3 +70,4 @@ elPrev.addEventListener("click", ()=>{
 
 
 getData(page);
+})
